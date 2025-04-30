@@ -20,13 +20,13 @@ git clone https://github.com/embarkit/RunC.web
 cd RunC.web
 ```
 
-#### Install what's needed:
+#### Install what's needed :
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Start it up:
+#### Start it up :
 
 ```bash
 python app.py
