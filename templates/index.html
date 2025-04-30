@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run C Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Run Your C Code
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </h1>
+        <form id="codeForm">
+            <textarea name="code" id="codeInput" placeholder="#include &lt;stdio.h&gt;&#10;&#10;int main() {&#10;    printf(\"Hello, World!\\n\");&#10;    return 0;&#10;}" spellcheck="false"></textarea>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="submit" id="runButton">
+                    <i class="fas fa-play"></i> Run Code
+                </button>
+                <div class="status-bar">
+                    <span id="status">Ready</span>
+                </div>
+            </div>
+        </form>
+        <pre id="output">Output will appear here...</pre>
+    </div>
+
+    <footer>
+        Developed by <a href="https://mrfidal.in" target="_blank">MrFidal</a> | © 2025 C Code Runner | Free to use
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
