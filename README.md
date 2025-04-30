@@ -23,7 +23,7 @@ cd RunC.web
 #### Install what's needed:
 
 ```bash
-pip install flask zeroc
+pip install -r requirements.txt
 ```
 
 #### Start it up:
