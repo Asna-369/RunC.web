@@ -1,0 +1,201 @@
+:root {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --accent-color: #00ffcc;
+    --code-bg: #2e2e2e;
+    --output-bg: #0f0f0f;
+    --shadow-color: rgba(0, 255, 255, 0.2);
+    --button-text: #121212;
+    --footer-bg: #1a1a1a;
+}
+
+.light-theme {
+    --bg-color: #f5f5f5;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #007acc;
+    --code-bg: #f8f8f8;
+    --output-bg: #e8e8e8;
+    --shadow-color: rgba(0, 122, 204, 0.2);
+    --button-text: #ffffff;
+    --footer-bg: #e0e0e0;
+}
+
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 95%;
+    max-width: none;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--container-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    flex: 1;
+}
+
+h1 {
+    color: var(--accent-color);
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+textarea {
+    width: 100%;
+    min-height: 200px;
+    background: var(--code-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    font-family: inherit;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    white-space: pre;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 24px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+#output {
+    width: 100%;
+    background: var(--output-bg);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    font-family: inherit;
+    white-space: pre;
+    overflow: auto;
+    min-height: 60px;
+    max-height: 500px;
+    box-sizing: border-box;
+}
+
+.status-bar {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--accent-color);
+}
+
+footer {
+    width: 100%;
+    background: var(--footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes progress {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.loading {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+.compiling-animation {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, 
+        var(--output-bg) 0%, 
+        rgba(0, 255, 204, 0.1) 50%, 
+        var(--output-bg) 100%);
+    background-size: 200% 100%;
+    animation: progress 2s linear infinite;
+}
+
+.compiling-text {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 98%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    textarea {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    button {
+        padding: 10px 18px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .theme-toggle {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+    
+    footer {
+        font-size: 12px;
+        padding: 10px 0;
+    }
+}
